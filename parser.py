@@ -4,18 +4,33 @@
 # VERB + OBEJCT
 # MOVE + direction
 
-validVerb = ["look", "go", "take"]
+actionVerb = ["look", "go", "take"]
+#preposition = ["to", ]
 menuVerb = ["start", "resume", "save"]
 singleVerb = ["help", "inventory"]
 
 # verbs method ---------------------------------------
 
 # repeats the long form explanation of the room
-def lookItem(item):
+def lookItem(restOfTheCommand):
+	#print restOfTheCommand[0]
+	words = restOfTheCommand
+	#if preposition provided
+	if words[0] == "at":
+		item = words[1]
+	else:
+		item = words[0]
 	print "look", item
 
-def goDirection(direction):
-	print "go", direction
+def goDirection(restOfTheCommand):
+	#print restOfTheCommand[0]
+	words = restOfTheCommand
+	#if preposition provided
+	if words[0] == "to":
+		item = words[1]
+	else:
+		item = words[0]
+	print "go", item
 
 #acquire an object, putting it into your inventory
 def takeItem(item):
@@ -23,7 +38,9 @@ def takeItem(item):
 
 #list a set of verbs the game understands
 def helpUser():
-	print "help"
+	print "following is the list of verbs the game understands:"
+	for verb in dispatch:
+		print verb
 #
 def checkInventory():
 	print "check checkInventory"
@@ -45,8 +62,8 @@ dispatch = {"start": startGame, "resume": resumeGame, "save": saveGame,
 			"inventory": checkInventory}
 
 # helper ------------------------------------------------
-def isVerbValid(verb):
-	return verb in validVerb
+def isActionVerb(verb):
+	return verb in actionVerb
 
 def isMenuVerb(verb):
 	return verb in menuVerb
@@ -58,16 +75,16 @@ def isSingleVerb(verb):
 def commandParsing(userInput):
 	#print "this is the input", userInput
 	#required verbs and phrases
-	verb = userInput.split()[0]
+	verb = userInput.split()[0].lower()
 	#check the verb is in the list
-	if isVerbValid(verb) or isMenuVerb(verb) or isSingleVerb(verb):
+	if isActionVerb(verb) or isMenuVerb(verb) or isSingleVerb(verb):
 		if isMenuVerb(verb) or isSingleVerb(verb):
 			dispatch[verb]()
 		else:
-			item = userInput.split()[1]
-			dispatch[verb](item)
+			restOfTheCommand = userInput.lower().split()[1:]
+			dispatch[verb](restOfTheCommand)
 	else:
-		print "usage: VERB OBJECT"
+		print "use 'help' for instruction"
 	return
 
 def main():
