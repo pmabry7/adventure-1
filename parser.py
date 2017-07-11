@@ -6,7 +6,7 @@
 
 actionVerb = ["look", "go", "take"]
 #preposition = ["to", ]
-menuVerb = ["start", "resume", "save"]
+menuVerb = ["start", "loadgame", "savegame"]
 singleVerb = ["help", "inventory"]
 
 # verbs method ---------------------------------------
@@ -22,14 +22,15 @@ def lookItem(restOfTheCommand):
 		item = words[0]
 	print "look", item
 
-def goDirection(restOfTheCommand):
+def goWhere(restOfTheCommand):
 	#print restOfTheCommand[0]
 	words = restOfTheCommand
 	#if preposition provided
-	if words[0] == "to":
-		item = words[1]
-	else:
-		item = words[0]
+	#if words[0] == "to":
+		#item = words[0]
+	#else:
+		#item = words[0]
+	item = words[-1]
 	print "go", item
 
 #acquire an object, putting it into your inventory
@@ -57,8 +58,8 @@ def saveGame():
 #--------------------------------------------------------
 
 
-dispatch = {"start": startGame, "resume": resumeGame, "save": saveGame, 
-			"look": lookItem, "go": goDirection, "take": takeItem, "help": helpUser,
+dispatch = {"startgame": startGame, "loadgame": resumeGame, "savegame": saveGame, 
+			"look": lookItem, "go": goWhere, "take": takeItem, "help": helpUser,
 			"inventory": checkInventory}
 
 # helper ------------------------------------------------
