@@ -2,10 +2,14 @@ import sys
 from Game import Game
 import json
 
-actionVerb = ["look", "go", "take", "drop"]
+#verb with object
+actionVerb = ["look", "go", "take", "drop", "hit", "eat"]
+
 directionVerb = ["north", "south", "east", "west"]
-#preposition = ["to", ]
+
 menuVerb = ["start", "loadgame", "savegame"]
+
+#verb without object
 singleVerb = ["help", "inventory"]
 
 # verbs method ---------------------------------------
@@ -110,6 +114,17 @@ def helpUser(game):
 	print "following is the list of verbs the game understands:"
 	for verb in dispatch:
 		print verb
+
+#
+def hitItem(restOfTheCommand, game):
+    item = restOfTheCommand[-1]
+    print "hit", item
+
+
+def eatItem(restOfTheCommand, game):
+    item = restOfTheCommand[-1]
+    print "eat", item
+
 #
 def checkInventory(game):
     if not game.bag.items:
@@ -165,7 +180,7 @@ def saveGame(game):
 dispatch = {"start": startGame, "loadgame": resumeGame, "savegame": saveGame, 
 			"look": lookItem, "go": goWhere, "take": takeItem, "drop": dropItem, "help": helpUser,
 			"inventory": checkInventory, "north": directionWhere, "south": directionWhere,
-            "east": directionWhere, "west": directionWhere, "room": roomWhere}
+            "east": directionWhere, "west": directionWhere, "room": roomWhere, "hit": hitItem, "eat": eatItem }
 
 # helper ------------------------------------------------
 def isActionVerb(verb):
@@ -188,7 +203,7 @@ def isRoomVerb(verb, game):
 
 def showItemsInTheRoom(game):
     if len(game.currentRoom.items) == 0:
-        print "Looks like nothing here!"
+        print "It seems like an empty room."
     else:
         print "Here are items in the room:"
         for item in game.currentRoom.items:
