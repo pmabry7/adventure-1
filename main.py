@@ -27,11 +27,6 @@ def lookItem(restOfTheCommand, game):
 def goWhere(restOfTheCommand, game):
 	#print restOfTheCommand[0]
     words = restOfTheCommand
-	#if preposition provided
-	#if words[0] == "to":
-		#location = words[0]
-	#else:
-		#location = words[0]
     location = words[-1]
 
     isValidNeighbor = False
@@ -49,6 +44,8 @@ def goWhere(restOfTheCommand, game):
                         game.currentRoom.hasBeenVisited = True
                     else:
                         print game.currentRoom.shortDesc
+
+                    showItemsInTheRoom(game)
 
                     print "Neighboring rooms:"
                     for k in j.neighbors:
@@ -140,6 +137,15 @@ def isMenuVerb(verb):
 
 def isSingleVerb(verb):
 	return verb in singleVerb
+
+def showItemsInTheRoom(game):
+    if len(game.currentRoom.items) == 0:
+        print "Looks like nothing here!"
+    else:
+        print "Here are items in the room:"
+        for item in game.currentRoom.items:
+            print item
+    print " "
 #--------------------------------------------------------
 
 def commandParsing(userInput, game):
@@ -176,6 +182,8 @@ def main():
 
     print game.r1.longDesc
     game.r1.hasBeenVisited = True
+
+    showItemsInTheRoom(game)    
 
     print "Neighboring rooms:"
     for i in game.r1.neighbors:
