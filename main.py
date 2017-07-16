@@ -1,6 +1,7 @@
 import sys
 from Game import Game
 import json
+from Stuff import Stuff
 
 #verb with object
 actionVerb = ["look", "go", "take", "drop", "hit", "eat"]
@@ -20,10 +21,13 @@ def lookItem(restOfTheCommand, game):
     words = restOfTheCommand
 	#if preposition provided
     if words and words[0] == "at":
-        item = words[1]
-        if words[1] in game.currentRoom.items:
-            print game.itemDescriptions[words[1]]
-        else:
+        item = words[-1]
+        itemValid = False
+        for stuff in game.currentRoom.items:
+            if item == stuff.name:
+                print stuff.description
+                itemValid = True
+        if not itemValid:
             print "Nothing to look at."
     else:
         print game.currentRoom.longDesc
@@ -90,24 +94,28 @@ def takeItem(item, game):
     if isAlreadyInBag == True:
         print "Your bag already contains that item!"
     else:
-        if item[0] in game.currentRoom.items:
-            game.bag.items.append(item[0])
-            game.currentRoom.items.remove(item[0])
-            print "Placed", item[0], "in bag."
-        else:
-            print "No", item[0], "to pick up."
+        for stuff in game.currentRoom.items:
+            if item[0] == stuff.name:
+                game.bag.items.append(stuff)
+                game.currentRoom.items.remove(stuff)
+                print "Placed", stuff.name, "in bag."
+            else:
+                print "No", stuff.name, "to pick up."            
 
 #drop object in current room, removing it from your inventory
 def dropItem(item, game):
-    if item[0] in game.bag.items:
-        if game.currentRoom.itemsAreDroppable == True:
-            game.bag.items.remove(item[0])
-            game.currentRoom.dropItem(item[0])
-            print "Dropped", item[0]
-        else:
-            print "Can't drop that here!"
-    else:
-        print "No", item[0], "in bag."
+    foundInTheBag = False
+    for stuff in game.bag.items:
+        if item[0] == stuff.name:
+            foundInTheBag = True
+            if game.currentRoom.itemsAreDroppable == True:
+                game.bag.items.remove(stuff)
+                game.currentRoom.dropItem(stuff)
+                print "Dropped", stuff.name
+            else:
+                print "Can't drop that here!"
+    if not foundInTheBag:
+        print "No", stuff, "in bag."
 
 #list a set of verbs the game understands
 def helpUser(game):
@@ -129,8 +137,8 @@ def eatItem(restOfTheCommand, game):
 def checkInventory(game):
     if not game.bag.items:
         print "Bag is empty."
-    for i in game.bag.items:
-        print i
+    for stuff in game.bag.items:
+        print stuff.name
 
 def startGame(game):
     print "Welcome!"
@@ -206,8 +214,8 @@ def showItemsInTheRoom(game):
         print "It seems like an empty room."
     else:
         print "Here are items in the room:"
-        for item in game.currentRoom.items:
-            print item
+        for stuff in game.currentRoom.items:
+            print stuff.name
     print " "
 
 #--------------------------------------------------------

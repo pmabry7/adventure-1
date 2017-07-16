@@ -1,13 +1,21 @@
 from Bag import Bag
 from Room import Room
+from Stuff import Stuff
 
 class Game(object):
     def __init__(self):
         self.bag = Bag()
+        
+        #init items
+        lamp = Stuff("lamp", "A dusty lamp that seems to have something inside", ["look", "hit"])
+        key1 = Stuff("key1", "A long wooden key", ["use"])
+        key2 = Stuff("key2", "A small metal key", ["use"])
+        stick = Stuff("stick", "A warbly walking stick", ["use"])
+
         self.r1 = Room("room1", [], True)
-        self.r2 = Room("room2", ["lamp"], True)
-        self.r3 = Room("room3", ["key1"], True)
-        self.r4 = Room("room4", ["stick", "key2"], True)
+        self.r2 = Room("room2", [lamp], True)
+        self.r3 = Room("room3", [key1], True)
+        self.r4 = Room("room4", [stick, key2], True)
         self.r5 = Room("room5", [], True)
 
         self.r1.setNeighbors([self.r2, self.r4, self.r5])
@@ -33,7 +41,7 @@ class Game(object):
         self.r4.setShortDescription("This is the short description for room4")
         self.r5.setShortDescription("This is the short description for room5")
 
-        self.itemDescriptions = {"lamp": "A dusty lamp that seems to have something inside", "key1": "A long wooden key", "key2": "A small metal key", "stick": "A warbly walking stick"}
+        #self.itemDescriptions = {"lamp": "A dusty lamp that seems to have something inside", "key1": "A long wooden key", "key2": "A small metal key", "stick": "A warbly walking stick"}
 
         self.rooms = [self.r1, self.r2, self.r3, self.r4, self.r5]
         self.currentRoom = self.r1
