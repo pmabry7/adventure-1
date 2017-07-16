@@ -159,7 +159,16 @@ def resumeGame(game):
 
     roomCnt = 0
     for i in jsonData["list"][loadNum-1]["items"]:
-        game.rooms[roomCnt].items = i
+        itemList = []
+        print "room", roomCnt
+        if len(i) == 0:
+            pass
+        else:
+            for s in i:
+                #string to json
+                t = json.loads(s)
+                itemList.append(Stuff(t['name'], t['description'], t['availableVerbs']))
+        game.rooms[roomCnt].items = itemList
         roomCnt = roomCnt+1
 
     print "Game successfully loaded."
@@ -170,7 +179,7 @@ def saveGame(game):
     for itemList in roomItemsGen:
         temp = []
         for item in itemList:
-            temp.append(json.dumps(item, default=lambda o: o.__dict__))
+            temp.append(json.dumps(item.__dict__))
         roomItems.append(temp)
 
     print "Enter a name for the save file."
