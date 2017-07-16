@@ -167,14 +167,19 @@ def resumeGame(game):
 def saveGame(game):
     roomItemsGen = (i.items for i in game.rooms)
     roomItems = []
-    for i in roomItemsGen:
-        roomItems.append(i)
+    for itemList in roomItemsGen:
+        temp = []
+        for item in itemList:
+            temp.append(json.dumps(item, default=lambda o: o.__dict__))
+        roomItems.append(temp)
 
     print "Enter a name for the save file."
     saveName = raw_input("> ")
     game.gameName = saveName
     jsonToWrite = {"room":game.currentRoom.name, "bag":game.bag.items, "name":game.gameName, "items":roomItems}
-
+    
+    #print jsonToWrite
+    
     with open('savedGames.txt', 'r+') as f:
         data = json.load(f)
         data["list"].append(jsonToWrite)
