@@ -160,7 +160,7 @@ def resumeGame(game):
     roomCnt = 0
     for i in jsonData["list"][loadNum-1]["items"]:
         itemList = []
-        print "room", roomCnt
+        #print "room", roomCnt
         if len(i) == 0:
             pass
         else:
