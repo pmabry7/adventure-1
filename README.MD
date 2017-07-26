@@ -1,0 +1,1 @@
+v1.2 July 26 - add quit, fix room connection during setup
