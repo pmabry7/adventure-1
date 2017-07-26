@@ -174,7 +174,14 @@ def openItem(restOfTheCommand, game):
             if "open" in stuff.availableVerbs:
                 #game.currentRoom.items.remove(stuff)
                 print "opened", stuff.name
-                print "found", stuff.relatedItems[0]
+                empty = True
+                for item in game.currentRoom.items:
+                    if stuff.relatedItems[0] == item.name:
+                        empty = False
+                if empty:
+                    print "nothing inside of", stuff.name
+                else:
+                    print "found", stuff.relatedItems[0]
             else:
                 print "You can't open that."
 
