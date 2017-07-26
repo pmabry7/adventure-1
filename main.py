@@ -10,7 +10,7 @@ def readRoomFiles(roomFileNames, listOfRooms):
     return listOfRooms
 
 #verb with object
-actionVerb = ["look", "go", "take", "drop", "hit", "eat"]
+actionVerb = ["look", "go", "take", "drop", "hit", "eat", "open"]
 directionVerb = ["north", "south", "east", "west"]
 menuVerb = ["start", "loadgame", "savegame", "quit"]
 #verb without object
@@ -165,6 +165,22 @@ def eatItem(restOfTheCommand, game):
     if itemFound == False:
         print "No", item, "to eat."
 
+def openItem(restOfTheCommand, game):
+    item = restOfTheCommand[-1]
+    itemFound = False
+    for stuff in game.currentRoom.items:
+        if item == stuff.name:
+            itemFound = True
+            if "open" in stuff.availableVerbs:
+                #game.currentRoom.items.remove(stuff)
+                print "opened", stuff.name
+                print "found", stuff.relatedItems[0]
+            else:
+                print "You can't open that."
+
+    if itemFound == False:
+        print "No", item, "to open."
+
 #
 def checkInventory(game):
     if not game.bag.items:
@@ -242,7 +258,7 @@ def quitGame(game):
 
 
 dispatch = {"start": startGame, "loadgame": resumeGame, "savegame": saveGame, "quit": quitGame,
-			"look": lookItem, "go": goWhere, "take": takeItem, "drop": dropItem, "help": helpUser,
+			"look": lookItem, "go": goWhere, "take": takeItem, "open": openItem, "drop": dropItem, "help": helpUser,
 			"inventory": checkInventory, "north": directionWhere, "south": directionWhere,
             "east": directionWhere, "west": directionWhere, "room": roomWhere, "hit": hitItem, "eat": eatItem }
 
@@ -273,7 +289,12 @@ def showItemsInTheRoom(game):
         #print game.currentRoom.items
         print "Here are items in the room:"
         for stuff in game.currentRoom.items:
-            print stuff.name
+            found = False
+            for hidden in game.currentRoom.hiddenItems:
+                if hidden.name == stuff.name:
+                    found = True
+            if found == False:
+                print stuff.name
     print " "
 
 #--------------------------------------------------------
@@ -301,7 +322,7 @@ def commandParsing(userInput, game):
 
 def main():
     roomFileNames = ["frontYard.json", "porch.json", "foyer.json"]
-    itemFileNames = ["key.json", "lamp.json"]
+    itemFileNames = ["key.json", "lamp.json", "rock.json"]
     listOfRooms = {}
     listOfItems = {}
 
