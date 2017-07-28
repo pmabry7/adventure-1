@@ -24,7 +24,8 @@ def lookItem(restOfTheCommand, game):
     words = restOfTheCommand
 	#if preposition provided
     if words and words[0] == "at":
-        item = words[-1]
+        pos = words.index("at")
+        item = " ".join(words[i] for i in range(pos+1, len(words)))
         itemValid = False
         for stuff in game.currentRoom.items:
             if item == stuff.name:
@@ -329,7 +330,7 @@ def commandParsing(userInput, game):
 
 def main():
     roomFileNames = ["frontYard.json", "porch.json", "foyer.json"]
-    itemFileNames = ["key.json", "lamp.json", "rock.json"]
+    itemFileNames = ["key.json", "lamp.json", "rock.json", "light switch.json", "bench.json"]
     listOfRooms = {}
     listOfItems = {}
 
