@@ -65,7 +65,6 @@ def directionWhere(direction, game):
                 print "You cannot go in that direction."
 
 def goWhere(restOfTheCommand, game):
-	#print restOfTheCommand[0]
     words = restOfTheCommand
     if len(words) == 2:
         location = words[-2] + " " + words[-1]
@@ -73,13 +72,16 @@ def goWhere(restOfTheCommand, game):
         location = words[-1]
 
     isValidNeighbor = False
+    enteredNewRoom = False
+    
     for i in game.rooms:
         if i == game.currentRoom:
             for j in i.neighbors:
-                if location in game.currentRoom.neighborDirections:
+                if (location in game.currentRoom.neighborDirections) and (enteredNewRoom == False):
                     isValidNeighbor = True
                     game.currentRoom = game.currentRoom.neighborDirections[location]
                     enterRoom(game.currentRoom, game)
+                    enteredNewRoom = True
 
                 elif j.name == location: #for context 'go room'
                     isValidNeighbor = True
@@ -323,6 +325,7 @@ def commandParsing(userInput, game):
             dispatch["room"](userInput, game)
         else:
             restOfTheCommand = userInput.lower().split()[1:]
+            #print "debug: rest: ", restOfTheCommand, " verb: ", verb
             dispatch[verb](restOfTheCommand, game)
     else:
         print "use 'help' for instruction"
