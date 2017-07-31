@@ -169,6 +169,11 @@ def eatItem(restOfTheCommand, game):
         print "No", item, "to eat."
 
 def openItem(restOfTheCommand, game):
+    #when player opens a door to access another room
+    if restOfTheCommand[-1] == "lock":
+        openDoor(restOfTheCommand, game)
+        return
+    #when player opens item
     item = restOfTheCommand[-1]
     itemFound = False
     for stuff in game.currentRoom.items:
@@ -190,6 +195,18 @@ def openItem(restOfTheCommand, game):
 
     if itemFound == False:
         print "No", item, "to open."
+
+#
+def openDoor(restOfTheCommand, game):
+    #check if player with key
+    foundKey = False
+    for item in game.bag.items:
+        if item.name == "key":
+            foundKey = True
+    if foundKey:
+        print "open door"
+    else:
+        print "you need key to open it"
 
 #
 def checkInventory(game):
@@ -332,8 +349,8 @@ def commandParsing(userInput, game):
     return
 
 def main():
-    roomFileNames = ["frontYard.json", "porch.json", "foyer.json"]
-    itemFileNames = ["key.json", "lamp.json", "rock.json", "light switch.json", "bench.json"]
+    roomFileNames = ["frontYard.json", "porch.json", "foyer.json", "downstairs hallway.json", "living room.json"]
+    itemFileNames = ["key.json", "lamp.json", "rock.json", "light switch.json", "bench.json", "picture.json", "rug.json", "porch swing.json", "door lock.json", "mirror.json"]
     listOfRooms = {}
     listOfItems = {}
 

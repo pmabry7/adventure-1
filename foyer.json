@@ -10,7 +10,7 @@
 		"north":"downstairs hallway",
 		"south":"porch",
 		"east":"the neighbors house. I don't think they want company this late.",
-	    "west": "a dark forest. I don't want to go in there at night.",
+	    "west":"living room",
 	    "item": ["bench", "light switch"],
 	    "hidden": ["none"]
 	}

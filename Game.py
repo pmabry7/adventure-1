@@ -53,6 +53,7 @@ class Game(object):
                     if neighbor[1].name == roomData[room]["east"]:
                         neighbors.append(neighbor[1])
                         neighborDirections.update({"east":neighbor[1]})
+            if roomData[room]["west"] in self.roomNames:
                 for neighbor in enumerate(self.rooms):
                     if neighbor[1].name == roomData[room]["west"]:
                         neighbors.append(neighbor[1])
