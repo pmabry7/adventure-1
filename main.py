@@ -2,12 +2,15 @@ import sys
 from Game import Game
 import json
 from Stuff import Stuff
+from ReadDataFiles import *
+
 
 def readRoomFiles(roomFileNames, listOfRooms):
     for i in range(0, len(roomFileNames)):
         with open(roomFileNames[i], 'r') as name:
             listOfRooms.update(json.load(name))
     return listOfRooms
+
 
 #verb with object
 actionVerb = ["look", "go", "take", "drop", "hit", "eat", "open"]
@@ -46,7 +49,7 @@ def enterRoom(room, game):
     else:
         print game.currentRoom.shortDesc
 
-    showItemsInTheRoom(game)
+    #showItemsInTheRoom(game)
     
     print "Neighboring rooms:"
     for i in room.neighbors:
@@ -341,7 +344,8 @@ def commandParsing(userInput, game):
         elif isRoomVerb(userInput, game): #2-word room
             dispatch["room"](userInput, game)
         else:
-            restOfTheCommand = userInput.lower().split()[1:]
+            restOfTheCommand = userInput.split()[1:]
+            #restOfTheCommand = userInput.lower().split()[1:]
             #print "debug: rest: ", restOfTheCommand, " verb: ", verb
             dispatch[verb](restOfTheCommand, game)
     else:
@@ -349,15 +353,23 @@ def commandParsing(userInput, game):
     return
 
 def main():
-    roomFileNames = ["frontYard.json", "porch.json", "foyer.json", "downstairs hallway.json", "living room.json"]
+    #roomFileNames = ["frontYard.json", "porch.json", "foyer.json", "downstairs hallway.json", "living room.json"]
     itemFileNames = ["key.json", "lamp.json", "rock.json", "light switch.json", "bench.json", "picture.json", "rug.json", "porch swing.json", "door lock.json", "mirror.json"]
-    listOfRooms = {}
+    #listOfRooms = {}
     listOfItems = {}
 
-    roomData = readRoomFiles(roomFileNames, listOfRooms)
+
+    roomData = readRoomFile()
+    idx = 0
+    for room in roomData:
+        print idx, room
+        idx = idx + 1
+
+    #roomData = readRoomFiles(roomFileNames, listOfRooms)
     itemData = readRoomFiles(itemFileNames, listOfItems)
 
     game = Game(roomData, itemData)
+    
     print("                             __                     __                    ")
     print("      .----.-----. .---.-.--|  |.--.--.-----.-----.|  |_.--.--.----.-----.")
     print("      |  __|__ --| |  _  |  _  ||  |  |  -__|     ||   _|  |  |   _|  -__|")
@@ -377,7 +389,7 @@ def main():
     print game.currentRoom.longDesc
     game.currentRoom.hasBeenVisited = True
 
-    showItemsInTheRoom(game)
+    #showItemsInTheRoom(game)
 
     print "Neighboring rooms:"
     for i in game.currentRoom.neighbors:
@@ -386,6 +398,6 @@ def main():
     while True:
         command = raw_input("> ")
         commandParsing(command, game)
-
+    
 if __name__ == "__main__":
-	main()
+    main()

@@ -1,7 +1,7 @@
 {
-	"downstairsHallway":
+	"Downstairs Hallway":
 	{
-		"roomName":"downstairs hallway",
+		"roomName":"Downstairs Hallway",
 		"longDescription":"This a placeholder for the long description",
 		"shortDescription":"This a placeholder for the short description",
 		"features": [
@@ -10,8 +10,8 @@
 		"neighbors":{
 			"north":"Garage",
 			"south":"Foyer",
-			"east":"Bathroom",
-	    	"west": "a display of fanily pictures"
+			"east": "Kitchen",
+	    	"west": "Bathroom"
 	    	},
 	    "item": ["picture", "rug"],
 	    "hidden": ["none"]

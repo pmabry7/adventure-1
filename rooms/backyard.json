@@ -1,7 +1,7 @@
 {
 	"backyard":
 	{
-		"name":"Backyard",
+		"roomName":"Backyard",
 		"longDescription":"This a placeholder for the long description",
 		"shortDescription":"This a placeholder for the short description",
 		"features": [
@@ -13,6 +13,6 @@
 			"east":"",
 			"west":""
 		},
-		"items":[]
+		"item":[]
 	}
 }

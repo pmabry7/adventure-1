@@ -18,8 +18,10 @@ filePath = ("rooms")
 def readRoomFile():
     roomDir = os.listdir(filePath)
     for name in roomDir:
-        with open(os.path.join(filePath, name)) as n:
-            roomList.update(json.load(n))
+        #to avoid reading hidden file, such as .DS_Store on mac
+        if name.endswith(".json"):
+            with open(os.path.join(filePath, name)) as n:
+                roomList.update(json.load(n))
     return roomList
 
 #adds each of the objects in the itemFile to a dictionary
@@ -35,3 +37,11 @@ def readFeatureList():
     with open("featureFile.json", 'r') as n:
         featureList.update(json.load(n))
     return featureList
+
+
+def main():
+    for n in readRoomFile():
+        print n
+
+if __name__ == "__main__":
+    main()

@@ -1,7 +1,7 @@
 {
-	"diningRoom":
+	"Dining Room":
 	{
-		"name":"Dining Room",
+		"roomName":"Dining Room",
 		"longDescription":"This a placeholder for the long description",
 		"shortDescription":"This a placeholder for the short description",
 		"features": [
@@ -11,10 +11,10 @@
 		{
 			"north":"Kitchen",
 			"south":"",
-			"east":"Foyer",
-			"west":"placeholder"
+			"east":"",
+			"west":"Foyer"
 		},
-		"items":[],
+		"item":[],
 		"hidden": ["none"]
 	}
 }

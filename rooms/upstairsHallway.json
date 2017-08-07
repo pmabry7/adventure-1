@@ -1,7 +1,7 @@
 {
 	"upstairs hallway":
 	{
-		"name":"Upstairs Hallway",
+		"roomName":"Upstairs Hallway",
 		"longDescription":"This a placeholder for the long description",
 		"shortDescription":"This a placeholder for the short description",
 		"features": [
@@ -13,7 +13,7 @@
 			"east":"Second Bedroom",
 			"west":"Master Bedroom"
 		},
-		"items":[],
+		"item":[],
 		"hidden": ["none"]
 	}
 }

@@ -1,7 +1,7 @@
 {
-	"kitchen":
+	"Kitchen":
 	{
-		"name":"Kitchen",
+		"roomName":"Kitchen",
 		"longDescription":"This a placeholder for the long description",
 		"shortDescription":"This a placeholder for the short description",
 		"features": [
@@ -13,7 +13,7 @@
 			"east":"",
 			"west":"Basement"
 		},
-		"items":[],
+		"item":[],
 		"hidden": ["none"]
 	}
 }
