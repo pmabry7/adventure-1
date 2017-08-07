@@ -37,11 +37,3 @@ def readFeatureList():
     with open("featureFile.json", 'r') as n:
         featureList.update(json.load(n))
     return featureList
-
-
-def main():
-    for n in readRoomFile():
-        print n
-
-if __name__ == "__main__":
-    main()

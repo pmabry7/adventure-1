@@ -100,22 +100,30 @@ def roomWhere(roomName, game):
 
 #acquire an object, putting it into your inventory
 def takeItem(item, game):
+    if len(item) == 2:
+        item = item[-2] + " " + item[-1]
+    else:
+        item = item[-1]
+
     isAlreadyInBag = False
     for i in game.bag.items:
-        if i == item[0]:
+        if i == item:
             isAlreadyInBag = True
     if isAlreadyInBag == True:
         print "Your bag already contains that item!"
     else:
         itemFound = False
         for stuff in game.currentRoom.items:
-            if item[0] == stuff.name:
-                game.bag.items.append(stuff)
-                game.currentRoom.items.remove(stuff)
+            if item == stuff.name:
                 itemFound = True
-                print "Placed", stuff.name, "in bag."
+                if "take" in stuff.availableVerbs:
+                    game.bag.items.append(stuff)
+                    game.currentRoom.items.remove(stuff)
+                    print "Placed", stuff.name, "in bag."
+                else:
+                    print "You cannot take that item."
         if itemFound == False:
-            print "No", item[0], "to pick up."            
+            print "No", item, "to pick up."         
 
 #drop object in current room, removing it from your inventory
 def dropItem(item, game):
@@ -139,11 +147,15 @@ def helpUser(game):
 		print verb
 
 #
-def hitItem(restOfTheCommand, game):
-    item = restOfTheCommand[-1]
+def hitItem(item, game):
+    if len(item) == 2:
+        item = item[-2] + " " + item[-1]
+    else:
+        item = item[-1]
+
     itemFound = False
     for stuff in game.currentRoom.items:
-        if item == stuff.name:
+        if stuff.name == item:
             itemFound = True
             if "hit" in stuff.availableVerbs:
                 print "Hit", stuff.name
@@ -154,11 +166,15 @@ def hitItem(restOfTheCommand, game):
         print "No", item, "to hit."
 
 
-def eatItem(restOfTheCommand, game):
-    item = restOfTheCommand[-1]
+def eatItem(item, game):
+    if len(item) == 2:
+        item = item[-2] + " " + item[-1]
+    else:
+        item = item[-1]
+
     itemFound = False
     for stuff in game.currentRoom.items:
-        if item == stuff.name:
+        if stuff.name == item:
             itemFound = True
             if "eat" in stuff.availableVerbs:
                 game.currentRoom.items.remove(stuff)
@@ -169,16 +185,20 @@ def eatItem(restOfTheCommand, game):
     if itemFound == False:
         print "No", item, "to eat."
 
-def openItem(restOfTheCommand, game):
+def openItem(item, game):
     #when player opens a door to access another room
-    if restOfTheCommand[-1] == "lock":
-        openDoor(restOfTheCommand, game)
+    if item[-1] == "lock":
+        openDoor(item, game)
         return
     #when player opens item
-    item = restOfTheCommand[-1]
+    if len(item) == 2:
+        item = item[-2] + " " + item[-1]
+    else:
+        item = item[-1]
+
     itemFound = False
     for stuff in game.currentRoom.items:
-        if item == stuff.name:
+        if stuff.name == item:
             itemFound = True
             if "open" in stuff.availableVerbs:
                 #game.currentRoom.items.remove(stuff)
