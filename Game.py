@@ -15,7 +15,6 @@ class Game(object):
             self.stuff.append(Stuff(itemData[item]["name"], itemData[item]["description"], itemData[item]["availableVerbs"], itemData[item]["relatedItems"]))
 
         for idx, room in enumerate(roomData):
-            print idx, room
             self.roomNames.append(roomData[room]["roomName"])
 
             self.roomItems = []

@@ -48,9 +48,7 @@ def enterRoom(room, game):
         game.currentRoom.hasBeenVisited = True
     else:
         print game.currentRoom.shortDesc
-
     #showItemsInTheRoom(game)
-    
     print "Neighboring rooms:"
     for i in room.neighbors:
         print i.name
@@ -358,13 +356,7 @@ def main():
     #listOfRooms = {}
     listOfItems = {}
 
-
     roomData = readRoomFile()
-    idx = 0
-    for room in roomData:
-        print idx, room
-        idx = idx + 1
-
     #roomData = readRoomFiles(roomFileNames, listOfRooms)
     itemData = readRoomFiles(itemFileNames, listOfItems)
 
@@ -391,6 +383,7 @@ def main():
 
     #showItemsInTheRoom(game)
 
+    print ""
     print "Neighboring rooms:"
     for i in game.currentRoom.neighbors:
         print i.name
