@@ -371,15 +371,11 @@ def commandParsing(userInput, game):
     return
 
 def main():
-    #roomFileNames = ["frontYard.json", "porch.json", "foyer.json", "downstairs hallway.json", "living room.json"]
-    itemFileNames = ["key.json", "lamp.json", "rock.json", "light switch.json", "bench.json", "picture.json", "rug.json", "porch swing.json", "door lock.json", "mirror.json", "upstairs window.json", "crumpled paper.json", "window.json"]
-    #listOfRooms = {}
-    listOfItems = {}
-
+    #load room and item data from file
     roomData = readRoomFile()
-    #roomData = readRoomFiles(roomFileNames, listOfRooms)
-    itemData = readRoomFiles(itemFileNames, listOfItems)
-
+    itemData = readItemFile()
+    
+    #set up game engine
     game = Game(roomData, itemData)
     
     print("                             __                     __                    ")

@@ -12,6 +12,7 @@ roomList = {}
 itemList = {}
 featureList ={}
 filePath = ("rooms")
+itemPath = ("items")
 
 #loops through the roomFileNames list, and adds each object to a dictionary
 #return a dictionary with all the rooms, and their attributes
@@ -24,11 +25,21 @@ def readRoomFile():
                 roomList.update(json.load(n))
     return roomList
 
+'''
 #adds each of the objects in the itemFile to a dictionary
 #return a dictionary with all the items, and their attributes
 def readItemFile():
     with open("itemFile.json", 'r') as n:
         itemList.update(json.load(n))
+    return itemList
+'''
+
+def readItemFile():
+    itemDir = os.listdir(itemPath)
+    for item in itemDir:
+        if item.endswith(".json"):
+            with open(os.path.join(itemPath, item)) as n:
+                itemList.update(json.load(n))
     return itemList
 
 #adds each of the objects in the featureFile to a dictionary
