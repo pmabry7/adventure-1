@@ -14,7 +14,8 @@
 			"west":"a dark forest. I don't want to go in there at night."},
 		"item":[
 			"rock",
-			"key"],
+			"key",
+			"upstairs window"],
 		"hidden": ["key"]
 	}	
 }

@@ -14,7 +14,7 @@
 			"east":"",
 			"west":"Foyer"
 		},
-		"item":[],
+		"item":["window", "crumpled paper"],
 		"hidden": ["none"]
 	}
 }
