@@ -14,7 +14,7 @@
 			"east":"Foyer",
 			"west":""
 		},
-		"item":[],
+		"item":["lamp", "mirror"],
 		"hidden": ["none"]
 	}
 }

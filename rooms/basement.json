@@ -13,6 +13,6 @@
 			"east":"",
 			"west":""
 		},
-		"item":[]
+		"item":["shelf", "dryer"]
 	}
 }
