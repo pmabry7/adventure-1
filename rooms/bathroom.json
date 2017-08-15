@@ -13,7 +13,7 @@
 			"east":"",
 			"west":"Downstairs Hallway"
 		},
-		"item":[],
+		"item":["medicine cabinet", "shower curtain"],
 		"hidden": ["none"]
 	}
 }

@@ -5,4 +5,4 @@ v1.22 July 27 - add items to foyer. revise "look at" parsing method for two-word
 v1.23 July 30 - fixed room loading for room in the west. Added the door lock in Porch room, requiring the key hidden in the fake rock in front yard to open it. Added more rooms and items.<br>
 v1.24 Aug 7th - merge penny's works. merge Anthony's works. fix bugs caused by integration.<br>
 v1.25 Aug 13th - fix key.json for available verb<br>
-v1.25 Aug 14th - Add upstairs window to front yard. Add description about family to picture. Add dining room, kitchen, living room related objects. Add loading items from files. <br>
+v1.25 Aug 14th - Add upstairs window to front yard. Add description about family to picture. Add dining room, kitchen, living room, basement, bathroom, backyard, shed and the related objects. Add loading items from files. <br>
