@@ -4,16 +4,8 @@ import json
 from Stuff import Stuff
 from ReadDataFiles import *
 
-
+#keep track room names
 listOfRooms=[]
-
-'''
-def readRoomFiles(roomFileNames, listOfRooms):
-    for i in range(0, len(roomFileNames)):
-        with open(roomFileNames[i], 'r') as name:
-            listOfRooms.update(json.load(name))
-    return listOfRooms
-'''
 
 
 #verb with object
@@ -52,7 +44,8 @@ def enterRoom(room, game):
         game.currentRoom.hasBeenVisited = True
     else:
         print game.currentRoom.shortDesc
-    #showItemsInTheRoom(game)
+    #testing purpose. might comment out after the project is done.
+    showItemsInTheRoom(game)
     print "Neighboring rooms:"
     for i in room.neighbors:
         print i.name
@@ -345,7 +338,7 @@ def isDirectionVerb(verb):
     return verb in directionVerb
 
 def isRoomVerb(roomName, game):
-    print "roomName", roomName
+    #print "roomName", roomName
     for i in game.currentRoom.neighbors:
         #print ">>", verb, i.name, "<<"
         if roomName == i.name or roomName.title() == i.name:
@@ -433,7 +426,7 @@ def checkGameStatus(game):
                         print "doll in place"
                     dollFound = True
                 elif roomItem.name == "journal":
-                    if game.journalPlace == False:
+                    if game.journalPlaced == False:
                         print "journal in place"
                     journalFound = True
 
@@ -478,7 +471,8 @@ def main():
     print game.currentRoom.longDesc
     game.currentRoom.hasBeenVisited = True
 
-    #showItemsInTheRoom(game)
+    #testing purpose. we might comment out when complete the project
+    showItemsInTheRoom(game)
 
     print ""
     print "Neighboring rooms:"

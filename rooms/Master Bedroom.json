@@ -13,6 +13,6 @@
 			"east":"Upstairs Hallway",
 			"west":""
 		},
-		"item":["dresser", "bedside table"]
+		"item":["dresser", "bedside table", "journal"]
 	}
 }
