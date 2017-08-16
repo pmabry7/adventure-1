@@ -1,7 +1,7 @@
 {
-	"upstairs hallway":
+	"Second Bedroom":
 	{
-		"roomName":"Upstairs Hallway",
+		"roomName":"Second Bedroom",
 		"longDescription":"This a placeholder for the long description",
 		"shortDescription":"This a placeholder for the short description",
 		"features": [
@@ -9,11 +9,11 @@
 			"feature2"],
 		"neighbors":{
 			"north":"",
-			"south":"",
-			"east":"Second Bedroom",
-			"west":"Master Bedroom"
+			"south":"Hidden Room",
+			"east":"",
+			"west":"Upstairs Hallway"
 		},
-		"item":[],
+		"item":["desk", "closet"],
 		"hidden": ["none"]
 	}
 }

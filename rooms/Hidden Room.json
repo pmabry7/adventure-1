@@ -1,5 +1,5 @@
 {
-	"hiddenRoom":
+	"Hidden Room":
 	{
 		"roomName":"Hidden Room",
 		"longDescription":"This a placeholder for the long description",
@@ -13,7 +13,7 @@
 			"east":"",
 			"west":""
 		},
-		"item":[],
+		"item":["bodies", "door"],
 		"hidden": ["none"]
 	}
 }

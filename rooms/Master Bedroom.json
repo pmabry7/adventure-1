@@ -1,7 +1,7 @@
 {
-	"secondbedroom":
+	"Master Bedroom":
 	{
-		"roomName":"secondbedroom",
+		"roomName":"Master Bedroom",
 		"longDescription":"This a placeholder for the long description",
 		"shortDescription":"This a placeholder for the short description",
 		"features": [
@@ -9,11 +9,10 @@
 			"feature2"],
 		"neighbors":{
 			"north":"",
-			"south":"Hidden Room",
-			"east":"",
-			"west":"Upstairs Hallway"
+			"south":"",
+			"east":"Upstairs Hallway",
+			"west":""
 		},
-		"item":[],
-		"hidden": ["none"]
+		"item":["dresser", "bedside table"]
 	}
 }

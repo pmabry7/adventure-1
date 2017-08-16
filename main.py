@@ -143,9 +143,14 @@ def takeItem(item, game):
 
 #drop object in current room, removing it from your inventory
 def dropItem(item, game):
+    if len(item) == 2:
+        item = item[-2] + " " + item[-1]
+    else:
+        item = item[-1]
+
     foundInTheBag = False
     for stuff in game.bag.items:
-        if item[0] == stuff.name:
+        if item == stuff.name:
             foundInTheBag = True
             if game.currentRoom.itemsAreDroppable == True:
                 game.bag.items.remove(stuff)
@@ -154,7 +159,7 @@ def dropItem(item, game):
             else:
                 print "Can't drop that here!"
     if not foundInTheBag:
-        print "No", stuff, "in bag."
+        print "No", item, "in bag."
 
 #list a set of verbs the game understands
 def helpUser(game):
@@ -362,10 +367,35 @@ def showItemsInTheRoom(game):
                 print stuff.name
     print " "
 
+#handle go upstairs from downstairs hallway
+#or go downstairs from upstairs hallway
+def goUpstairsAndDownstairs(userInput, game):
+    verb = userInput.split()[0].lower()
+    if ( len(userInput.split()) >= 2 and verb == "go" and (userInput.split()[-1]== "upstairs" or userInput.split()[-1] == "downstairs")):
+        foundRoom = False
+        if game.currentRoom.name == "Downstairs Hallway" and userInput.split()[-1]== "upstairs":
+            for room in game.rooms:
+                if room.name == "Upstairs Hallway" and foundRoom == False:
+                    foundRoom = True
+                    game.currentRoom = room
+                    enterRoom(room, game)
+                    return True
+        if game.currentRoom.name == "Upstairs Hallway" and userInput.split()[-1]== "downstairs":
+            for room in game.rooms:
+                if room.name == "Downstairs Hallway" and foundRoom == False:
+                    foundRoom = True
+                    game.currentRoom = room
+                    enterRoom(room, game)
+                    return True
+    return False
+
 #--------------------------------------------------------
 
 def commandParsing(userInput, game):
     verb = userInput.split()[0].lower()
+    #handle go upstairs and downstairs
+    if (goUpstairsAndDownstairs(userInput, game)):
+        return
 	#check the verb is in the list
     if isActionVerb(verb) or isMenuVerb(verb) or isSingleVerb(verb) or isDirectionVerb(verb):
         if isMenuVerb(verb) or isSingleVerb(verb):
@@ -385,6 +415,37 @@ def commandParsing(userInput, game):
     else:
         print "use 'help' for instruction"
     return
+
+def checkGameStatus(game):
+    necklaceFound = False
+    dollFound = False
+    journalFound = False
+
+    for room in game.rooms:
+        if room.name == "Hidden Room":
+            for roomItem in room.items:
+                if roomItem.name == "necklace":
+                    if game.necklacePlaced == False:
+                        print "necklace in place"
+                    necklaceFound = True
+                elif roomItem.name == "doll":
+                    if game.dollPlaced == False:
+                        print "doll in place"
+                    dollFound = True
+                elif roomItem.name == "journal":
+                    if game.journalPlace == False:
+                        print "journal in place"
+                    journalFound = True
+
+    game.necklacePlaced = necklaceFound
+    game.dollPlaced = dollFound
+    game.journalPlaced = journalFound
+
+    if necklaceFound == True and dollFound == True and journalFound == True:
+        winGame()
+
+def winGame():
+    print "You win!"
 
 def main():
     #load room and item data from file
@@ -427,6 +488,7 @@ def main():
     while True:
         command = raw_input("> ")
         commandParsing(command, game)
+        checkGameStatus(game)
     
 if __name__ == "__main__":
     main()
