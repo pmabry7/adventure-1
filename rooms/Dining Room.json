@@ -1,20 +1,20 @@
 {
 	"Dining Room":
 	{
-		"roomName":"Dining Room",
-		"longDescription":"This a placeholder for the long description",
-		"shortDescription":"This a placeholder for the short description",
+		"name":"Dining Room",
+		"longDescription":"The dining room is mostly bare except for a couple of faded paintings on the walls. ",
+		"shortDescription":"From the dining room you can see the o to the kitchen to the north, and the Foyer is to the east. The south wall faces the front of the house, and you can see you car through the window. For a brief moment you think you see a face, and you feel a jolt of fear. When you look closer it is gone.",
 		"features": [
-			"feature1",
-			"feature2"],
+			"window",
+			"crumpled paper"],
 		"neighbors":	
 		{
 			"north":"Kitchen",
 			"south":"",
-			"east":"",
-			"west":"Foyer"
+			"east":"Foyer",
+			"west":""
 		},
-		"item":["window", "crumpled paper"],
+		"items":[],
 		"hidden": ["none"]
 	}
 }
