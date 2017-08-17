@@ -13,7 +13,7 @@
 			"east":"Second Bedroom",
 			"west":"Master Bedroom"
 		},
-		"items":[],
+		"items":["none],
 		"hidden": ["none"]
 	}
 }
