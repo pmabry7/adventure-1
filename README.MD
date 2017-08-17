@@ -11,4 +11,4 @@ v1.27 Aug 16th - Merge Anthony's works. Connect all the rooms 1-15 in the docume
 v1.28 Aug 16th - Temporarily put necklace and doll in upstairs hallway. journal in master bedroom. Tested if taking all three objects and dropping them in the hidden room, the player wins the game.<br>
 v1.29 Aug 17th - Merge Anthony's works.<br>
 v1.30 Aug 17th - Merge Penny's works.<br>
-v1.31 Aug 17th - Rollback to previous state (after merging Anthony's and before merging Penny's.) The game does not function properly.<br>
+v1.31 Aug 17th - Rollback to previous state at v1.29 since the game does not function properly.<br>
