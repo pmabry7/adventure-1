@@ -9,3 +9,4 @@ v1.25 Aug 14th - Add upstairs window to front yard. Add description about family
 v1.26 Aug 15th - Edit parsing system to handle 'go + adjective + room', 'adjective + room'<br>
 v1.27 Aug 16th - Merge Anthony's works. Connect all the rooms 1-15 in the document <em>Storyline Progress.</em> Add go upstairs and downstairs behavior in game engine.<br>
 v1.28 Aug 16th - Temporarily put necklace and doll in upstairs hallway. journal in master bedroom. Tested if taking all three objects and dropping them in the hidden room, the player wins the game.<br>
+v1.29 Aug 17th - Merge Anthony's works.
