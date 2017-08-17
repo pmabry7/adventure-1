@@ -12,3 +12,4 @@ v1.28 Aug 16th - Temporarily put necklace and doll in upstairs hallway. journal 
 v1.29 Aug 17th - Merge Anthony's works.<br>
 v1.30 Aug 17th - Merge Penny's works.<br>
 v1.31 Aug 17th - Rollback to previous state at v1.28 since the game does not function properly.<br>
+v1.32 Aug 17th - Fix bugs occur when player taking items other than key and and when the game engine accessing non-existent attribute game.bedroomUnlocked<br>
