@@ -1,19 +1,18 @@
 {
-	"master bedroom":
+	"Master Bedroom":
 	{
-		"name":"master bedroom",
-		"longDescription":"THe master bedroom is still fully furnished. The bed even has bedding on it still. Most of personal items seems to be gone though, and the closet is almost totally empty. THe only door in the room leads bask to the upstairs hallway.",
-		"shortDescription":"The master bedroom still contains a bed, dresser, and bedside table. The door on the west leads to the upstairs hallway.",
+		"roomName":"Master Bedroom",
+		"longDescription":"This a placeholder for the long description",
+		"shortDescription":"This a placeholder for the short description",
 		"features": [
-			"dresser",
-			"bedside table"],
+			"feature1",
+			"feature2"],
 		"neighbors":{
 			"north":"",
 			"south":"",
-			"east":"",
-			"west":"upstairs hallway"
+			"east":"Upstairs Hallway",
+			"west":""
 		},
-		"items":[],
-		"hidden": ["none"]
+		"item":["dresser", "bedside table", "journal"]
 	}
 }

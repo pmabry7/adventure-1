@@ -1,19 +1,19 @@
 {
 	"Bathroom":
 	{
-		"name":"Bathroom",
-		"longDescription":"You notice the musty smell of mold as you step into the bathroom. The tub still has its shower curtain though a couple of the rings have broken off. There's a medicine cabinet on one wall, and a mirror above the sink.'",
-		"shortDescription":"The door to the west leads to the first floor hallway.",
+		"roomName":"Bathroom",
+		"longDescription":"This a placeholder for the long description",
+		"shortDescription":"This a placeholder for the short description",
 		"features": [
-			"medicine cabinet",
-			"shower curtain"],
+			"feature1",
+			"feature2"],
 		"neighbors":{
 			"north":"",
 			"south":"",
 			"east":"",
 			"west":"Downstairs Hallway"
 		},
-		"items":[],
+		"item":["medicine cabinet", "shower curtain"],
 		"hidden": ["none"]
 	}
 }
