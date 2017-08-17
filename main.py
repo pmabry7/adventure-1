@@ -126,13 +126,15 @@ def goWhere(words, game):
     isValidNeighbor = False
     enteredNewRoom = False
     
+    foundRoom = False
     for i in game.rooms:
         if i == game.currentRoom:
             for j in i.neighbors:
-                if (location in game.currentRoom.neighborDirections) and (enteredNewRoom == False):
+                if (location in game.currentRoom.neighborDirections) and (enteredNewRoom == False) and (foundRoom==False):
                     isValidNeighbor = True
                     checkLockedRoom(game.currentRoom.neighborDirections[location], game)
                     enteredNewRoom = True
+                    foundRoom = True
 
                 elif j.name == location: #for context 'go room'
                     isValidNeighbor = True
@@ -451,6 +453,21 @@ def goUpstairsAndDownstairs(userInput, game):
         if game.currentRoom.name == "Upstairs Hallway" and userInput.split()[-1]== "downstairs":
             for room in game.rooms:
                 if room.name == "Downstairs Hallway" and foundRoom == False:
+                    foundRoom = True
+                    game.currentRoom = room
+                    enterRoom(room, game)
+                    return True
+        foundRoom = False
+        if game.currentRoom.name == "Kitchen" and userInput.split()[-1]== "downstairs":
+            for room in game.rooms:
+                if room.name == "Basement" and foundRoom == False:
+                    foundRoom = True
+                    game.currentRoom = room
+                    enterRoom(room, game)
+                    return True
+        if game.currentRoom.name == "Basement" and userInput.split()[-1]== "upstairs":
+            for room in game.rooms:
+                if room.name == "Kitchen" and foundRoom == False:
                     foundRoom = True
                     game.currentRoom = room
                     enterRoom(room, game)
