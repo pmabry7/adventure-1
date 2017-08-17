@@ -70,7 +70,7 @@ def checkLockedRoom(room, game):
         else:
             print "The front door is locked."
     elif room.name == "Shed":
-        if game.shedUnlocked == False:
+        if game.status["shedUnlocked"] == False:
             for item in game.bag.items:
                 if item.name == "key2":
                     print "The shed unlocks and the door creaks open."

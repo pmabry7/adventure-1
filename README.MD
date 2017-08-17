@@ -13,3 +13,4 @@ v1.29 Aug 17th - Merge Anthony's works.<br>
 v1.30 Aug 17th - Merge Penny's works.<br>
 v1.31 Aug 17th - Rollback to previous state at v1.28 since the game does not function properly.<br>
 v1.32 Aug 17th - Fix bugs occur when player taking items other than key and and when the game engine accessing non-existent attribute game.bedroomUnlocked<br>
+v1.33 Aug 17th - Fix bugs regarding accessing non-existent attribute. Put crowbar in tool box, doll in backyard, necklace in the basement. Tested that user can win after following the instructions in the Progression.doc.<br>
