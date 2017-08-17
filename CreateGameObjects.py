@@ -1,5 +1,6 @@
 '''
 Created on Jul 15, 2017
+
 @author: Penny
 '''
 import ReadDataFiles
@@ -13,6 +14,7 @@ featureNames = []
 
 roomObjects = {}
 stuffObjects = {}
+featureObjects = {}
 
 #This function uses data read in by ReadDataFiles to create a dict containing Room objects
 def createRooms():
@@ -41,3 +43,14 @@ def stuffObj(stuffIn):
     newStuff = Stuff(stuffIn["name"],stuffIn["description"],stuffIn["availableVerbs"])
     return newStuff
 
+#This function uses data read in by ReadDataFiles to create a dict containing Feature objects
+def createFeatures():
+    featureList = ReadDataFiles.readFeatureList()
+    
+    for i in featureNames:
+        featureObjects[i] = featureObj(featureList[i])
+    return featureObjects
+
+def featureObj(featureIn):
+    newFeature = Feature(featureIn["itemName"],featureIn["description"],featureIn["availableVerbs"])
+    return newFeature
