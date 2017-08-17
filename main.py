@@ -101,13 +101,17 @@ def directionWhere(direction, game):
             if direction in game.currentRoom.neighborDirections:
                 isValidNeighbor = True
                 checkLockedRoom(game.currentRoom.neighborDirections[direction], game)
+                break
             else:
                 print "You cannot go in that direction."
 
 # handle go + adjective + roomname and two-word roomname as well as capital letter in room name
 def determineLocation(words):
     if len(words) == 1:
-        return words[-1]
+        if words[0].title() in listOfRooms:
+            return words[0].title()
+        else:
+            return words[0]
     else:
         if words[-1] in listOfRooms:
             return words[-1]
@@ -121,6 +125,7 @@ def determineLocation(words):
             return words
 
 def goWhere(words, game):
+    #print "words", words
     location = determineLocation(words)
     #print "location", location
     isValidNeighbor = False
