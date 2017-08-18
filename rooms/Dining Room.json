@@ -10,7 +10,7 @@
 			"north":"Kitchen",
 			"south":"",
 			"east":"",
-			"west":"Dining Room"
+			"west":"Foyer"
 		},
 		"item":["window", "crumpled paper"],
 		"hidden": []
