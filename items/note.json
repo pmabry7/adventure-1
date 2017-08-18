@@ -1,9 +1,9 @@
-+{
-+  "note": 
-+  {
-+    "name": "note",
-+    "description": "a suicide note from the mother",
-+    "availableVerbs": ["take"],
-+    "relatedItems": ["none"]
-+  }
-+}
+{
+  "note": 
+  {
+    "name": "note",
+    "description": "a suicide note from the mother. It explains how she planned to poison herself near a pond in the forest.",
+    "availableVerbs": ["take"],
+    "relatedItems": ["none"]
+  }
+}
