@@ -1,7 +1,7 @@
 {
   "journal": {
     "name": "journal",
-    "description": "a journal which tells about how her mother was physically abusive to both her and her father",
+    "description": "a journal which tells about how her mother was physically abusive to both her and her father. The last entry in the journal ends abruptly.",
     "availableVerbs": ["take"],
     "relatedItems": ["none"]
   }
