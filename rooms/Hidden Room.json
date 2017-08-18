@@ -11,7 +11,7 @@
 			"east":"",
 			"west":""
 		},
-		"items":[
+		"item":[
 			"bodies",
 			"door"],
 		"hidden": []

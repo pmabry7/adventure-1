@@ -11,7 +11,7 @@
 			"east":"",
 			"west":""
 		},
-		"items":["doll",
+		"item":["doll",
 			"shed door",
 			"swing set"],
 		"hidden": []

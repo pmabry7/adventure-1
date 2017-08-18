@@ -11,7 +11,7 @@
 			"east":"",
 			"west":"Upstairs Hallway"
 		},
-		"items":[
+		"item":[
 			"desk",
 			"closet"],
 		"hidden": []

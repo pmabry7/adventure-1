@@ -11,7 +11,7 @@
 			"east":"",
 			"west":""
 			},
-		"items":["rock",
+		"item":["rock",
 			"key",
 			"upstairs window"],
 		"hidden": ["key"]

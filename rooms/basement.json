@@ -11,7 +11,7 @@
 			"east":"Kitchen",
 			"west":""
 		},
-		"items":["necklace",
+		"item":["necklace",
 			"shelf",
 			"dryer"],
 		"hidden": []

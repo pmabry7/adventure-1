@@ -11,7 +11,7 @@
 			"east":"",
 			"west":"Basement"
 		},
-		"items":["note", "drawing", "stove", "refrigerator"],
+		"item":["note", "drawing", "stove", "refrigerator"],
 		"hidden": []
 	}
 }
